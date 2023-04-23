@@ -410,6 +410,29 @@ window.addEventListener('DOMContentLoaded', () => {
 
     filter();
 
+    //================== MOUSECHANGE =================
 
+    const mouseChange = () => {
+        let pathSizeImg = '';
+        let sizeBlock;
+
+        function changeImg(e) {
+            sizeBlock = e.target.querySelector('img');
+            pathSizeImg = sizeBlock.src.slice(0, -4);
+            sizeBlock.src = `${pathSizeImg}-1.png`;
+        }
+
+        function clearChange() {
+            sizeBlock.src = `${pathSizeImg}.png`;
+        }
+
+
+        document.querySelectorAll('.sizes-block').forEach(item => {
+            item.addEventListener('mouseenter', changeImg);
+            item.addEventListener('mouseleave', clearChange);
+        });
+    }
+
+    mouseChange();
 
 });
