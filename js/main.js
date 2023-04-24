@@ -420,10 +420,20 @@ window.addEventListener('DOMContentLoaded', () => {
             sizeBlock = e.target.querySelector('img');
             pathSizeImg = sizeBlock.src.slice(0, -4);
             sizeBlock.src = `${pathSizeImg}-1.png`;
+            clearContent(e, 'none');
         }
 
-        function clearChange() {
+        function clearChange(e) {
             sizeBlock.src = `${pathSizeImg}.png`;
+            clearContent(e, 'block');
+        }
+
+        function clearContent(e, status) {
+            const content = e.target.querySelectorAll('p:not(.sizes-hit)');
+
+            content.forEach(item => {
+                item.style.display = status;
+            });
         }
 
 
