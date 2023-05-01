@@ -445,4 +445,37 @@ window.addEventListener('DOMContentLoaded', () => {
 
     mouseChange();
 
+    //==================== ACCORDION  ========================
+
+    const accordion = () => {
+        const accordBtns = document.querySelectorAll('.accordion-heading'),
+            accordBlocks = document.querySelectorAll('.accordion-block');
+
+        accordBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                if (this.classList.contains('active-style')) {
+                    this.classList.remove('active-style');
+                    this.nextElementSibling.classList.remove('active-content');
+                    this.nextElementSibling.style.maxHeight = '0px';
+                } else {
+                    accordBtns.forEach(btn => {
+                        btn.classList.remove('active-style');
+                    });
+                    this.classList.add('active-style');
+
+                    accordBlocks.forEach(item => {
+                        item.classList.remove('active-content');
+                        item.style.maxHeight = '0px';
+                    });
+                    this.nextElementSibling.classList.add('active-content');
+                    this.nextElementSibling.style.maxHeight = `${this.nextElementSibling.scrollHeight + 80}px`;
+                }
+            });
+        });
+    }
+
+    accordion();
+
+
+
 });

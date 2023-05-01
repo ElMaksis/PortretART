@@ -1084,8 +1084,17 @@ h4 {
 }
 
 .often-questions .accordion-block {
-  margin-top: 1rem;
   background-color: #f7e7e6;
+  max-height: 0px;
+  opacity: 0;
+  transition: all, 0.3s ease-out;
+  overflow: hidden;
+}
+
+.often-questions .accordion-block.active-content {
+  overflow: visible;
+  opacity: 1;
+  margin-top: 1rem;
   padding: 3rem 4rem;
 }
 
