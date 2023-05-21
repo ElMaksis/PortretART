@@ -224,7 +224,7 @@ h4 {
 
 .header .burger-menu {
   display: none;
-  position: absolute;
+  /* position: absolute; */
   background-color: #fff;
   z-index: 10;
   list-style: none;
@@ -1509,6 +1509,20 @@ h4 {
 
 .container {
   overflow: hidden;
+}
+
+.pageup {
+  opacity: 0;
+  width: 26px;
+  height: 26px;
+  position: fixed;
+  bottom: 100px;
+  right: 5%;
+  z-index: 30;
+  background-color: #fff;
+  cursor: pointer;
+  border: 1px solid white;
+  transition: 1s all;
 }
 
 @media (max-width: 1399px) {
